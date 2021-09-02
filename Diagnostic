@@ -1,0 +1,76 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package matricez;
+import java.util.Scanner;
+/**
+ *
+ * @author vcbnmbc
+ */
+public class Matricez {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner teclado = new Scanner(System.in);
+        
+      
+        int n;
+                
+        System.out.print("Ingresa cel tamaño de la matriz: ");
+        n = teclado.nextInt();
+        
+       //x
+        System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            int y=(n-1);
+        for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+        if((i==j)||((i+j)==y)){
+        System.out.print("*");
+        }
+        else{
+        System.out.print(" ");
+        }
+     
+        }System.out.println();
+        }
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+        // triangulo
+            for (int i = 0; i < n; i++) {
+            for (int j = n-1-i; j>=0; j--) {
+                System.out.print("*");
+            }
+            System.out.print("");
+            System.out.println();
+        }
+
+            //Linea cuadratica
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            for(int i = 0; i < n; i++) {
+                System.out.print("  *  ");
+            }
+            System.out.println("     ");
+          
+            //centro de la forma
+            for(int i = 0; i < n-2; i++) {
+                System.out.print("  *  ");
+                for(int j = 0; j < n-2; j++) {
+                    System.out.print("     ");
+                }
+                System.out.println("  *  ");
+            }
+            
+            //Linea inferior
+            for(int i = 0; i < n; i++) {
+                System.out.print("  *  ");
+            }
+            System.out.println();
+            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+            
+            
+    }
+}
