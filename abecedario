@@ -4,7 +4,7 @@ import java.util.Scanner;
  *
  * @author vcbnmbc
  */
-public class Matricez {
+public class Abecedario {
 
     /**
      * @param args the command line arguments
