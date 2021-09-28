@@ -1,0 +1,78 @@
+package Abecedario2;
+import java.util.Scanner;
+/**
+ *
+ * @author vcbnmbc
+ */
+public class Abecedario2 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Scanner teclado = new Scanner(System.in);
+        int o;
+        char t = 0;
+        char[] pila = new char['Z'];
+        char[] alfabeto = new char['Z'];
+        alfabeto[0] = 'A';
+        do {
+        // Menu
+            System.out.println("1.- Llenar");
+            System.out.println("2.- Mostrar");
+            System.out.println("3.- Eliminar ");
+            System.out.println("4.- al azar");
+            o = teclado.nextInt();
+            switch (o) {
+        // Generar alfabeo
+                case 1:
+                    if (t < 26) {
+                        for (int i = 0; i <= 25; i++) {
+                            alfabeto[i] = (char) ('A' + i ) ;
+                            pila[t] =  alfabeto[i];
+                            t++;
+                            
+                        } 
+                        System.out.print("Valores agregado\n");
+                    } 
+                    else {
+                        System.out.println("No hay espacios disponibles");
+                    }
+                    break;
+                case 2:
+                     if (t > 0) {
+                         for (int i = t - 1; i >= 0; i--) {
+                            System.out.println(" " + pila[i]);
+                     }
+                     }
+                     else {
+                        System.out.println("pila vacia, no hay elementos para mostrar");
+                    }
+                    break;
+                case 3:
+                    if (t > 0) {
+                        System.out.println("dato eliminado..." + pila[t - 1]);
+                        t--;
+                    } 
+                    else {
+                        System.out.println("pila vacia, no hay elementos para eliminar");
+                    }
+                    break;
+                    case 4:
+                    for (int i = 0; i < tope; i++){
+                        car = pila[i];
+                        for (int j=0; j<tope; j++){
+                            if(pila[j] == car){
+                                con++;
+                            }
+                        }
+                        if (con>1){
+                        System.out.println(pila[i] + " " + con);
+                        }
+                        con=0;
+                    }
+                    break;
+            }
+
+        } while (o != 4);
