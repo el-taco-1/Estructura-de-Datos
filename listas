@@ -1,0 +1,74 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Noodle;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author locop
+ */
+public class Noodles {
+static int opt=0;
+static Nodo temp=null;
+        static Nodo inicio= null;
+
+    static class Nodo{
+        String Nombre;
+        Nodo sig;
+        private String name;
+        
+    }
+    
+     public static void mostrar(String name, Nodo next ){ // linea que muestra datos
+        System.out.println(name+" ");
+        while(inicio != null){                           
+            System.out.print(inicio.Nombre + " ");
+            inicio = inicio.sig;
+        }
+        
+    }
+    public  static void add(String name){
+        Scanner sc= new Scanner(System.in);  
+        
+       if(inicio==null){   //es un if para preguntar si hay datos dentro de la lista
+           inicio = new Nodo(); 
+           System.out.println("ingresa dato"); // pedir al usuario la ingresion de datos
+            String t = sc.nextLine();
+        inicio.Nombre=t;
+        inicio.sig=null;  
+        
+       }else{ // else para llenar el siguiente punto
+           temp = new Nodo(); 
+           System.out.println("ingresa dato");
+        temp.Nombre=sc.nextLine();
+        temp.sig=inicio;
+        inicio=temp; 
+       }
+        
+        
+    }
+
+     public static void main(String[] args) { //este metodo nos lleva ala creacion de un switch
+    do{
+    Scanner sc = new Scanner(System.in);
+            System.out.println("\n"
+                    +"1 - agregar\n"
+                    + "2 - mostrar\n"
+                    + "3 - salir\n");
+             switch (opt = sc.nextInt()){
+                 case 1:
+                     add(" "); //agregar datos
+                 break;
+                 case 2: 
+                     if(inicio==null){  //if para revision de datos de lista
+                         System.out.print("lista vacia");
+                     }
+                   mostrar("\n ", inicio);//ver lo que hay en lista
+                 break;
+                 
+    
+}while(opt !=3);
