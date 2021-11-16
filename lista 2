@@ -1,0 +1,92 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package deleteplis;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author vcbnmbc
+ */
+public class deleteso {
+
+    static int o = 0;
+    static Nodo temp = null;
+    static Nodo inicio = null;
+
+    static class Nodo { // Es el nodo pricpal
+
+        String Nombre; //Se guarda la info aqui
+
+        Nodo sig; // Para iniciar los datos
+
+        private String name;
+
+    }
+
+    public static void mostrar(String name, Nodo inicio) { // Es la clase para mostrar
+        System.out.println(name + " ");
+        while (inicio != null) {
+            System.out.print(inicio.Nombre + " ");
+            inicio = inicio.sig;
+        }
+    }
+
+    public static void Agregar() { //  Es la clase para agregar
+        Scanner sc = new Scanner(System.in);
+        if (inicio == null) { // Se usa el if para la continuidad del nodo
+            inicio = new Nodo();
+            System.out.println("Ingresar dato\n");
+            inicio.Nombre = sc.nextLine();
+            inicio.sig = null;
+
+        } else {
+            Nodo tem;
+            tem = new Nodo();
+            System.out.println("Ingresar dato\n");
+            tem.Nombre = sc.nextLine();
+            tem.sig = inicio;
+            inicio = tem;
+        }
+    }
+
+    public static void Eliminar(String name) { // Esta es la clase para eliminar los datos
+        Nodo tem;
+        inicio = inicio; // Declaramos apra los datos de la lista
+        tem = new Nodo();
+        //while (inicio != null) { // Si es diferente a null se repita
+        if (inicio.name == name) {
+            if (inicio == inicio) {
+                tem.Nombre = null;
+            }
+
+        }
+        inicio = inicio.sig;
+        //}
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("\n1 - Agregar\n" // La lista 
+                    + "\n2 - Mostrar\n"
+                    + "\n3 - Eliminar\n"
+                    + "\n4 - Salir\n");
+            switch (o = sc.nextInt()) {
+                case 1:
+                    Agregar(); // Hablamos a la clase de agregar
+                    break;
+                case 2:
+                    mostrar(" ", inicio); // Hablamos la clase mostrar
+                    break;
+                case 3:
+                    Eliminar(""); // Hablamos a la clase eliminar
+                    break;
+            }
+        } while (o != 4);
+
+    }
+}
