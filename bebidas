@@ -1,0 +1,148 @@
+//MAIN CLASS
+
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Palabrita;
+
+/**
+ *
+ * @author locop
+ */
+class Bebida {
+nodo jesus;
+nodo Ari;
+nodo wtf;
+nodo chili;
+nodo Cama;
+nodo poke;
+           
+
+public void agregar( String Nombre ){
+       nodo temp= new nodo();
+       temp.Nombre= Nombre;
+       if(jesus== null){
+          jesus= temp;
+        jesus.sig=null;
+        Ari = jesus;
+       }else{
+        Ari.sig = temp;
+        temp.sig = null;
+        Ari = temp;
+    }
+}
+       public void Jalar( String marca ){
+       nodo temp= new nodo();
+       temp.marca= marca;
+       if(wtf== null){
+          wtf= temp;
+        wtf.bro=null;
+        chili = wtf;
+       }else{
+        chili.bro = temp;
+        temp.bro = null;
+        chili = temp;
+    }
+    }
+           public void barato( String Id ){
+       nodo temp= new nodo();
+       temp.Id= Id;
+       if(Cama== null){
+          Cama= temp;
+        Cama.vaa=null;
+        poke = Cama;
+       }else{
+        poke.vaa = temp;
+        temp.vaa = null;
+        poke = temp;
+    }
+    }
+public void mostrar(){
+    nodo ac = new nodo();
+    ac= jesus;
+    nodo we = new nodo();
+    we= wtf;
+       nodo pp = new nodo();
+    pp= Cama;
+    int cont=0;
+    while(ac != null){
+        cont++;
+        System.out.println(" "+"["+cont+"]"+" "+"["+ac.Nombre+"]"+" "+" "+"["+we.marca+"]"+" "+" "+"["+pp.Id+"]"+" ");
+        ac = (nodo) ac.sig;
+         we = (nodo) we.bro;
+         pp= (nodo) pp.vaa;
+    }
+}
+}
+    
+
+//SUBCLASE
+
+package Palabrita;
+
+import java.util.Scanner;
+
+
+public class Palabrita {
+
+  
+    public static void main(String[] args) {
+           
+            Bebida Alch;
+        Alch = new Bebida();
+            int opt=0;
+  do{
+     
+    Scanner sc = new Scanner(System.in);
+          Scanner bo = new Scanner(System.in);
+            Scanner se = new Scanner(System.in);
+               Scanner ho = new Scanner(System.in);
+            System.out.println("\n"
+                    +"1  - Sumar Datos\n"
+                    +"2  - Mostar\n"
+                    +"3  - Salir\n");
+                 
+             switch (opt = sc.nextInt()){
+                 case 1:
+                   System.out.println("ingrese el nombre de la bebida");
+                        String Nombre=bo.nextLine();
+                         Alch.agregar(Nombre);
+                   System.out.println("ingrese el nombre de la marca");
+                    String marca=se.nextLine();
+                         Alch.Jalar(marca);
+                         System.out.println("ingrese el precio");
+                           String pr=se.nextLine();
+                           Alch.barato(pr);
+                 break;
+                 case 2:
+                    Alch.mostrar();
+                 break;
+               
+             }
+             
+}while(opt !=3);
+    }
+    }
+
+//NODOS
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Palabrita;
+
+/**
+ *
+ * @author locop
+ */
+class nodo {
+       String marca;
+      String Nombre;
+      String Id;
+      float presio;
+    nodo sig;
+    nodo bro;
+    nodo vaa;
+    
+}
