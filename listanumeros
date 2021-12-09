@@ -1,0 +1,189 @@
+/* 
+/* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package letrado;
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ *
+ * @author locop
+ */
+//MAIN CLASS
+public class Letrado {
+
+   
+    public static void main(String[] args) {
+
+            NodoN l;
+        l = new NodoN();
+            int opt=0;
+            
+  do{
+     
+    Scanner sc = new Scanner(System.in);
+          Scanner bo = new Scanner(System.in);
+            Scanner se = new Scanner(System.in);
+               Scanner ho = new Scanner(System.in);
+            System.out.println("\n"
+                    + "1  - Agregar numeros\n"
+                    + "2  - Mostrar\n"
+                    + "3  - Ordenar\n"
+                    + "4  - Eliminar repetido\n"
+                    + "5  - Agregar faltantes\n"
+                    + "6  - salir\n");
+                 
+             switch (opt = sc.nextInt()){
+                 case 1:
+                     int max = 10;
+                     int min= 1;
+                     for( int i=1; i<=5; i++) {
+                         int xd =(int) (Math.random()*(max-min+1)+min);
+                          l.Nomer(xd); 
+                     } 
+                      
+                 break;
+                 case 2:
+                 
+                  l.muestra();
+                 break;
+                 case 3:
+                     
+                     l.checa();
+                     break;
+                 case 4:
+                     
+                     l.Exterminar();
+                     break;
+                 case 5: 
+                     l.Escribir();
+                     break;
+               
+             }
+             }while(opt !=6);
+                 
+             
+  
+  }
+}
+
+    //CLASS NODON
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package letrado;
+
+/**
+ *
+ * @author locop
+ */
+class NodoN {
+    nodo primero;
+    nodo ultimo;
+    public void Nomer (int olo){
+        nodo temp = new nodo();
+        temp.olo=olo;
+        if(primero == null){
+            primero= temp;
+            primero.sig= null;
+            ultimo= primero;
+        }else{
+            ultimo.sig= temp;
+            temp.sig=null;
+            ultimo= temp;
+        }
+    }
+    public void Exterminar (){
+             int aux;
+        nodo actual = primero;
+        nodo siguiente = actual.sig;
+        nodo xd= new nodo();
+        
+      //  
+        //    for (int j = 1; j <= 5; j++) {
+            if(primero!=null){
+                while (actual.sig != null) {
+                    if (actual.olo == siguiente.olo) {
+                        aux = xd.olo;
+                        actual.olo = siguiente.olo;
+                        siguiente.olo = aux;
+                    }
+                    actual = siguiente;
+                    siguiente = siguiente.sig;
+                }
+
+            }
+        }
+
+    
+     public void checa() {
+        
+        for (int i = 1; i <= 5; i++) {
+            int aux;
+        nodo actual = primero;
+        nodo siguiente = actual.sig;
+      //  
+        //    for (int j = 1; j <= 5; j++) {
+            if(primero!=null){
+                while (actual.sig != null) {
+                    if (actual.olo < siguiente.olo) {
+                        aux = actual.olo;
+                        actual.olo = siguiente.olo;
+                        siguiente.olo = aux;
+                    }
+                    actual = siguiente;
+                    siguiente = actual.sig;
+                }
+
+            }
+        }
+
+     //   }
+    }
+        public void muestra (){
+        nodo ac = new nodo();
+        ac= primero;
+        while(ac !=null){
+            System.out.println(ac.olo);
+            ac= ac.sig;
+        }
+    }
+        
+        public void Escribir(){
+            int aux;
+        nodo actual = primero;
+        nodo siguiente = actual.sig;
+      nodo xd= new nodo();
+       
+            if(primero!=null){
+                while (actual.sig == null) {
+                    if (actual.olo == siguiente.olo) {
+                        aux = actual.olo;
+                        actual.olo = siguiente.olo;
+                        siguiente.olo = aux;
+                    }
+                    actual = siguiente;
+                    siguiente = siguiente.sig;
+                }
+
+            }
+        
+        }
+}
+//CLASS NODO
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package letrado;
+
+/**
+ *
+ * @author locop
+ */
+class nodo {
+    nodo sig;
+    int olo;
+}
