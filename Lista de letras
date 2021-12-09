@@ -1,0 +1,178 @@
+//MAIN CLASS
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package zetas;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author locop
+ */
+public class Zetas {
+
+    
+    public static void main(String[] args) {
+   
+           
+            CT NO;
+        NO = new CT();
+            int opt=0;
+  do{
+     
+    Scanner sc = new Scanner(System.in);
+          
+            System.out.println("\n"
+                    +"1  - Añadir palbras\n"
+                    +"2  - Mostrar\n"
+                    +"3  - Ordenar Palabras\n"
+                    +"4  - Cerar\n");
+                  
+                 
+             switch (opt = sc.nextInt()){
+                 case 1:
+                        NO.agregar();
+                 break;
+                 case 2:
+                        NO.mostrar();
+                 break;
+                 case 3:
+                        NO.ordenar();
+                     break;
+             }
+             }while(opt !=4);
+                 
+             
+  
+  }
+}
+    //SUB CLASE
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package zetas;
+
+import java.util.Random;
+
+/**
+ *
+ * @author locop
+ */
+class CT {
+    charco inicio;
+    charco fin;
+    public void agregar(){
+        int can = 5;
+        
+        String [] Zeta = new String [can];
+        Random random = new Random();
+        if (inicio == null) {
+            inicio = new charco();
+            char[] ca = {(char) (random.nextInt(26) + 'a')};
+            char[] ce = {(char) (random.nextInt(26) + 'a')};
+            char[] ci = {(char) (random.nextInt(26) + 'a')};
+            char[] co = {(char) (random.nextInt(26) + 'a')};
+
+            for (int i = 0; i < can; i++) {
+
+                Zeta[i] = co[(int) ((Math.random() * ((ca.length - 1) - 0 + 1) + 0))]+ " "
+                        + ce[(int) ((Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " "
+                        + ce[(int) ((Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " "
+                        + ci[(int) ((Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " ";
+                inicio.dato = Zeta[i];
+                //inicio.sig = null;
+                //fin = inicio;
+            }
+
+            inicio.sig = null;
+            fin = inicio;
+        } else {
+            charco tem;
+           
+            tem = new charco();
+            char[] ca = {(char) (random.nextInt(26) + 'a')};
+            char[] ce = {(char) (random.nextInt(26) + 'a')};
+            char[] ci = {(char) (random.nextInt(26) + 'a')};
+            char[] co = {(char) (random.nextInt(26) + 'a')};
+
+            for (int q = 0; q < can; q++) {
+
+                Zeta[q] = ce[(int) (Math.floor(Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " "
+                        + ce[(int) (Math.floor(Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " "
+                        + ci[(int) (Math.floor(Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " "
+                        + co[(int) (Math.floor(Math.random() * ((ca.length - 1) - 0 + 1) + 0))] + " ";
+                tem.dato = Zeta[q];
+                //fin.sig = tem;
+                //tem.sig = null;
+                //fin = temp;
+                
+            }
+            
+            fin.sig = tem;
+            tem.sig = null;
+            fin = tem;
+        }
+   
+
+    }
+    public void mostrar(){
+       charco actual= new charco();
+      actual= inicio;
+
+       
+        while (actual != null) {
+            System.out.println(actual.dato + " ");
+            
+            actual = (charco)actual.sig;
+           
+        }
+    }
+    public void ordenar(){
+          for (int i = 1; i <= 4; i++) {
+            String aux;
+            
+        charco actual = inicio;
+        charco siguiente = actual.sig;
+            //    for (int j = 1; j <= 5; j++) {
+            if(inicio!=null){
+                
+                while (actual.sig != null) {
+                      //int resultado= actual.webos.compareTo(siguiente.webos);
+                        //resultado==0
+                    if (actual.dato!=siguiente.dato){
+                    
+                        aux = actual.dato;
+                        actual.dato = siguiente.dato;
+                        siguiente.dato = aux;
+                    }
+                    actual = siguiente;
+                    siguiente = actual.sig;
+                }
+
+            }
+        }
+
+    }
+    }
+    
+
+//CLASS NODO
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package zetas;
+
+/**
+ *
+ * @author locop
+ */
+class charco {
+    
+    String dato;      
+    charco sig;
+    
+}
